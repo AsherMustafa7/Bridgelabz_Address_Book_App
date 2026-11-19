@@ -1,7 +1,7 @@
 /*
  * Project Name: Address Book Application
- * Use Case: Section 2 - UC1
- * Description: Tests mapping between AddressBookDTO and AddressBook model.
+ * Use Case: Section 2 - UC3
+ * Description: Tests mapping between AddressBookDTO and AddressBook model including ID.
  * Name: Asher Mustafa
  * Date: 20/11/2026
  */
@@ -29,13 +29,14 @@ class AddressBookMapperTest {
         assertEquals("9876543210", model.getPhoneNumber());
     }
 
-    // Test converting AddressBook model back into DTO
+    // Test converting AddressBook model back into DTO including ID
     @Test
     void testToDTO() {
         AddressBook model = new AddressBook(10, "Asher", "Mustafa", "9876543210");
 
         AddressBookDTO dto = AddressBookMapper.toDTO(model);
 
+        assertEquals(10, dto.getId());
         assertEquals("Asher", dto.getFirstName());
         assertEquals("Mustafa", dto.getLastName());
         assertEquals("9876543210", dto.getPhoneNumber());
